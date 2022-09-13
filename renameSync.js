@@ -3,9 +3,28 @@ let fs = require("fs");
 let server =http.createServer(function(req,res){
 
   if(req.url =="/"){
-    
-    try{
-        fs.renameSync("new.txt","neww.txt");
+
+                /** This coding system is error */
+
+   /* const err = fs.renameSync("new.txt","neww.txt");
+
+        if(err){     
+        res.writeHead(200,{"Content-type":"text/html"});
+        res.write("Rename Failed");
+        res.end();
+
+        }
+        else{
+            res.writeHead(200,{"Content-type":"text/html"});
+            res.write("Rename sucesss");
+            res.end();  
+     }
+     */
+
+     /**This is Solution Using Try Catch */
+
+     try{
+        fs.renameSync("neww.txt","newb.txt");
         res.writeHead(200,{"Content-type":"text/html"});
         res.write("Rename sucesss");
         res.end();
@@ -16,10 +35,9 @@ let server =http.createServer(function(req,res){
         res.end();
 
     }
-
-
-
+    
   }
+
 })
 server.listen(5050);
 
